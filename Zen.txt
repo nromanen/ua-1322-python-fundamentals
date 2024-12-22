@@ -9,3 +9,4 @@ The Zen of Python, by Tim Peters
 7.Readability counts.
 8.Special cases aren't special enough to break the rules.
 9.Although practicality beats purity.
+10.Errors should never pass silently.
