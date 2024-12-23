@@ -25,3 +25,4 @@ The Zen of Python, by Tim Peters
 23.Complex is better than complicated.
 24.Flat is better than nested.
 25.Sparse is better than dense.
+26.Readability counts.
