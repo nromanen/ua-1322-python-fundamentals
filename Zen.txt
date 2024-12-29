@@ -1,5 +1,5 @@
 The Zen of Python, by Tim Peters
-
+52.Now is better than never.
 1.Beautiful is better than ugly.
 2.Explicit is better than implicit.
 3.Simple is better than complex.
