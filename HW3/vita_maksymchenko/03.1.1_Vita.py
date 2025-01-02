@@ -18,5 +18,5 @@ with open("Zen.txt", "r") as file:
 
 content_upper = content.upper()  # перетворюємо текст на верхній регістр
 print(content_upper)
-new_content=content_upper.replace("I","&")  # замінюємо букву І на &
+new_content=content_upper.replace("I","&")  # замінюємо букву І на ?
 print(new_content)
