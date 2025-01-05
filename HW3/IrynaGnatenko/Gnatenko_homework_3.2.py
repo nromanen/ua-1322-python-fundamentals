@@ -6,44 +6,44 @@ A four-digit natural number is specified:
 """
 
 #ask user for an input
-numberString = input("Please input a four-digit natural number: ")
-errorMessage = "This doesn't seem to be a four-digit natural number"
+number_string = input("Please input a four-digit natural number: ")
+error_message = "This doesn't seem to be a four-digit natural number"
 
 #check if the input is a four-digit natural number
 try:
-	numberInteger = int(numberString)
-	if numberInteger >= 1000 and numberInteger <= 9999:
-		print(f"Awesome, {numberInteger} is a four-digit natural number")
+	number_integer = int(number_string)
+	if number_integer >= 1000 and number_integer <= 9999:
+		print(f"Awesome, {number_integer} is a four-digit natural number")
 	else:
-		print (f"{errorMessage}")
+		print (f"{error_message}")
 except ValueError:
-	print (f"{errorMessage}")
+	print (f"{error_message}")
 
 #find the product of the digits of this number
-if 'numberInteger' in vars() and numberInteger >= 1000 and numberInteger <= 9999:
+if 'number_integer' in vars() and number_integer >= 1000 and number_integer <= 9999:
 	digits = []
-	numberIntegerTemp1 = numberInteger			# create a temporary variable for conversion to list
+	number_integer_temp1 = number_integer			# create a temporary variable for conversion to list
 
-	while numberIntegerTemp1 > 0:
-		digits.append(numberIntegerTemp1 % 10)	# get the last digit
-		numberIntegerTemp1 //= 10				# remove the last digit
+	while number_integer_temp1 > 0:
+		digits.append(number_integer_temp1 % 10)	# get the last digit
+		number_integer_temp1 //= 10				# remove the last digit
 	digits.reverse()							# reverse the list to restore original order
 
-	currentDigit = int(digits[0])
+	current_digit = int(digits[0])
 	product = 1
 
-	for currentDigit in digits:
-		product *= currentDigit
+	for current_digit in digits:
+		product *= current_digit
 
 	print(f"The product of digits {digits} is {product}")
 
 # write the number in reverse order
-if 'numberInteger' in vars() and numberInteger >= 1000 and numberInteger <= 9999:
-	reverseDigits = list(reversed(digits))
-	print(f"{numberInteger} in reverse is {reverseDigits}")
+if 'number_integer' in vars() and number_integer >= 1000 and number_integer <= 9999:
+	reverse_digits = list(reversed(digits))
+	print(f"{number_integer} in reverse is {reverse_digits}")
 
 # in ascending order, you need to sort the numbers included in the given number
-if 'numberInteger' in vars() and numberInteger >= 1000 and numberInteger <= 9999:
-	digitsSortedAsc = list(sorted(digits))
-	print(f"{numberInteger} sorted in ascending order is {digitsSortedAsc}")
+if 'number_integer' in vars() and number_integer >= 1000 and number_integer <= 9999:
+	digits_sorted_asc = list(sorted(digits))
+	print(f"{number_integer} sorted in ascending order is {digits_sorted_asc}")
 
