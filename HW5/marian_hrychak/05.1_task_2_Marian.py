@@ -6,6 +6,11 @@ using cycles.
 n = int(input("Enter a number: "))
 
 fibonacci = [0, 1]
+
+if n == 1: print(fibonacci)
+
 while fibonacci[-1] < n:
     fibonacci.append(fibonacci[-1] + fibonacci[-2])
+    if fibonacci[-1] > n:
+        break
     print(fibonacci)

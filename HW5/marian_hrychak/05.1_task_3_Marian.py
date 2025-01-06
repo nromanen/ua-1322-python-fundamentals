@@ -10,8 +10,8 @@ factorial = 1
 if number < 0:
     print(f"{number} is less than zero.")
     quit()
-else:
-    for i in range(2, number + 1):
-        factorial *= i
+
+for i in range(2, number + 1):
+    factorial *= i
 
 print(f"The factorial of {number} is {factorial}.")
