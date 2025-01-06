@@ -17,11 +17,10 @@ print(result3)
 # If the login is "First", then greet the users. If the login is different, send an error message.
 # (need to use loop while)
 
-success = 0
-while success != 1:
+while True:
     login = input("Enter login: ")
     if login == "First":
         print("Welcome!")
-        success = 1
+        break
     else:
         print("Error: Login failed")
