@@ -6,7 +6,7 @@ if n > 0:
     n2 = 1
     sequence = [0, 1]
     number = 0
-    # Use two nested loops to create Fibonacci sequence.
+    # Use loop to create Fibonacci sequence.
     while number < n:
         number = sequence[n1] + sequence[n2]
         if number <= n:
