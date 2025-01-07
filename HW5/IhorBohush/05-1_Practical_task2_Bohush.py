@@ -9,11 +9,10 @@ if n > 0:
     # Use two nested loops to create Fibonacci sequence.
     while number < n:
         number = sequence[n1] + sequence[n2]
-        while number <= n:
+        if number <= n:
             sequence.append(number)
             n1 += 1
             n2 += 1
-            break
 else:
     sequence = 'Wrong number'
 print(sequence)
