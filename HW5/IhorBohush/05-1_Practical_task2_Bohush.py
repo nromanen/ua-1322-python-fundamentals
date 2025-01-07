@@ -1,6 +1,6 @@
 n = int(input('Enter integer number n = '))
-# Using a loop, check whether the entered number is positive and not zero.
-# If it is <=0 print "Wrong number", if not - continue the loop.
+# Check whether the entered number is positive and not zero.
+# If it is <=0 print "Wrong number", if not - continue.
 if n > 0:
     n1 = 0
     n2 = 1
