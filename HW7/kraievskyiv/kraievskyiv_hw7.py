@@ -1,8 +1,19 @@
 #Task 1
-def largest_of_two():
+def largest(a, b):
     """This function takes
     two numbers and returns 
     the largest one."""
+    if a > b:
+        return f"The largest number is {a}"
+    if a < b:
+        return f"The largest number is {b}"
+    return "The numbers are equal"
+
+
+def main():
+    """This function asks the user 
+    to enter two numbers and after 
+    calls function largerst"""
     while True:  
         a = input("Enter the first number: ")
         b = input("Enter the second number: ")
@@ -10,17 +21,12 @@ def largest_of_two():
         if a.isnumeric() and b.isnumeric():
             #Convert the input to integer
             a, b = int(a), int(b)
-            if a > b:
-                return f"The largest number is {a}"
-            elif b > a:
-                return f"The largest number is {b}"
-            return "The numbers are equal"
+            print(largest(a, b))
+            break
         print("Invalid input. Please enter valid numbers.")
 
-#Print the function's docstring
-print(largest_of_two.__doc__)
 #Call the function and print the result
-print(largest_of_two())
+main()
 
 
 #Task 2
