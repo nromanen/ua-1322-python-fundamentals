@@ -5,18 +5,23 @@
 from math import pi
 
 
-def rectangle(a, b):
-    area_rectangle = a * b
+def rectangle():
+    length = float(input('Enter the length of the rectangle: '))
+    width = float(input('Enter the width of the rectangle: '))
+    area_rectangle = length * width
     return area_rectangle
 
 
-def triangle(s, h):
-    area_triangle = s * h / 2
+def triangle():
+    side = float(input('Enter the side of the triangle: '))
+    height = float(input('Enter the height of the triangle: '))
+    area_triangle = side * height / 2
     return area_triangle
 
 
-def circle(r):
-    area_circle = round(pi * (r ** 2), 2)
+def circle():
+    radius = float(input('Enter the radius of the circle: '))
+    area_circle = round(pi * (radius ** 2), 2)
     return area_circle
 
 
@@ -25,17 +30,12 @@ def circle(r):
 # t - for the triangle;
 # c - for the circle
 area = input('Enter "r", or "t", or "c": ')
-if area == 'r':
-    length = float(input('Enter the length of the rectangle: '))
-    width = float(input('Enter the width of the rectangle: '))
-    result = f'Area of the rectangle = {rectangle(length, width)}'
-elif area == 't':
-    side = float(input('Enter the side of the triangle: '))
-    height = float(input('Enter the height of the triangle: '))
-    result = f'Area of the triangle = {triangle(side, height)}'
-elif area == 'c':
-    radius = float(input('Enter the radius of the circle: '))
-    result = f'Area of the circle = {circle(radius)}'
-else:
-    result = "Wrong letter! Can't calculate!"
-print(result)
+while area not in ['r', 't', 'c']:
+    area = input('Wrong letter! Try again: ')
+match area:
+    case 'r':
+        print(f'Area of the rectangle = {rectangle()}')
+    case 't':
+        print(f'Area of the triangle = {triangle()}')
+    case 'c':
+        print(f'Area of the circle = {circle()}')
