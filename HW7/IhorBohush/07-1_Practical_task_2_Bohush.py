@@ -28,14 +28,20 @@ def circle():
 # The user has to enter one of the letters to calculate the area:
 # r - for the rectangle;
 # t - for the triangle;
-# c - for the circle
-area = input('Enter "r", or "t", or "c": ')
-while area not in ['r', 't', 'c']:
-    area = input('Wrong letter! Try again: ')
-match area:
-    case 'r':
-        print(f'Area of the rectangle = {rectangle()}')
-    case 't':
-        print(f'Area of the triangle = {triangle()}')
-    case 'c':
-        print(f'Area of the circle = {circle()}')
+# c - for the circle;
+# q - to exit the calculation
+area = input('Enter "r", or "t", or "c", or "q" to exit: ')
+while area:
+    match area:
+        case 'r':
+            result = f'Area of the rectangle = {rectangle()}'
+        case 't':
+            result = f'Area of the triangle = {triangle()}'
+        case 'c':
+            result = f'Area of the circle = {circle()}'
+        case 'q':
+            break
+        case _:
+            result = 'Wrong letter! Try again:'
+    print(result)
+    area = input('Enter "r", or "t", or "c", or "q" to exit: ')
