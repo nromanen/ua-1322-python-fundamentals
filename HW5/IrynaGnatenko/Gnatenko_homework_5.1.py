@@ -11,4 +11,4 @@ for x in integer_list:                              # Use a loop to convert each
 	float_list.append(float(x))
 
 print(f"integer list: {integer_list}")              # Print the list of integers
-print(f"float list: {float_list}")                  # Print the list of floats
+print(f"float list: {float_list}")                  # Print the list of floats.
