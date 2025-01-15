@@ -54,9 +54,7 @@ def solution(number):
 # Considering these factors, write a function that tells you if it is possible to get to the pump or not.
 # Function should return true if it is possible and false if not.
 def zero_fuel(distance_to_pump, mpg, fuel_left):
-    if distance_to_pump / mpg <= fuel_left:
-        return True
-    return False
+    return distance_to_pump / mpg <= fuel_left
 
 # 9. Create a function which answers the question "Are you playing banjo?".
 # If your name starts with the letter "R" or lower case "r", you are playing banjo!
