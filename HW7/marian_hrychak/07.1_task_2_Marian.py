@@ -11,14 +11,14 @@ from math import pi
 
 def rectangle(length, width):
     """This function calculates the area of a rectangle."""
-    area_rectangle = length * width
-    return area_rectangle
+    return length * width
+
 
 
 def triangle(base, height):
     """This function calculates the area of a triangle."""
-    area_triangle = 0.5 * (base * height)
-    return area_triangle
+    return 0.5 * (base * height)
+
 
 
 def circle(radius):

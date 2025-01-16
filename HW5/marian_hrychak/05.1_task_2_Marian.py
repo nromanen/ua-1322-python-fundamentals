@@ -12,5 +12,7 @@ if n == 1: print(fibonacci)
 while fibonacci[-1] < n:
     fibonacci.append(fibonacci[-1] + fibonacci[-2])
     if fibonacci[-1] > n:
+        fibonacci.pop()
         break
-    print(fibonacci)
+
+print(fibonacci)
