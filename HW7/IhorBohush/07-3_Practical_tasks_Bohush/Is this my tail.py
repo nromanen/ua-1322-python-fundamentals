@@ -6,7 +6,4 @@
 # The arguments will always be nonempty strings, and normal letters.
 
 def correct_tail(body, tail):
-    if body[-1] == tail:
-        return True
-    else:
-        return False
+    return body[-1] == tail

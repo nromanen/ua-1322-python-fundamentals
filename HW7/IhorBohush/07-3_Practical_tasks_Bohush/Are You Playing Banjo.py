@@ -7,6 +7,7 @@
 
 def are_you_playing_banjo(name):
     if name.find('R') == 0 or name.find('r') == 0:
-        return name + ' plays banjo'
+        result = name + ' plays banjo'
     else:
-        return name + ' does not play banjo'
+        result = name + ' does not play banjo'
+    return result

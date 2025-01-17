@@ -3,6 +3,4 @@
 # As the input may have trailing spaces, you will also need to ignore unnecessary whitespace.
 
 def reverse(st):
-    st = reversed(st.split())
-    st = ' '.join(st)
-    return st
+    return ' '.join(reversed(st.split()))

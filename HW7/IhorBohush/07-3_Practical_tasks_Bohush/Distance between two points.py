@@ -6,14 +6,12 @@
 
 def distance(p1, p2):
     from math import sqrt
-    if len(p1) == 0 and len(p2) == 0:
-        dist = -1
-    elif len(p1) != len(p2):
+    if len(p1) == 0 and len(p2) == 0 or len(p1) != len(p2):
         dist = -1
     else:
         lst_degree = []
         for i in range(len(p1)):
             a = (p2[i] - p1[i]) ** 2
             lst_degree.append(a)
-        dist = sqrt(sum(lst_degree))
+        dist = round(sqrt(sum(lst_degree)), 2)
     return dist
