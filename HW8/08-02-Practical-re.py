@@ -2,7 +2,7 @@ import re
 
 def check(paswd: str) -> bool:
     re_pattern = r"(?=.*[#$@]+)(?=.*[a-z]+)(?=.*[A-Z]+)(?=.*[0-9]+)"
-    if re.search(re_pattern, paswd, re.IGNORECASE) and len(paswd) >= 6 and len(paswd) <= 16:
+    if re.search(re_pattern, paswd) and len(paswd) >= 6 and len(paswd) <= 16:
         return True
     else:
         return False
