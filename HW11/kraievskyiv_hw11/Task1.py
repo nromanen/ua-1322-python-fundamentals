@@ -5,10 +5,7 @@ def odd_or_even(age):
     """
     if age < 0:
         raise ValueError("Age can't be negative")
-    if age % 2 == 1:
-        return f"{age} is odd."
-    else:
-        return f"{age} is even."
+    return f"{age} is odd." if age % 2 == 1 else f"{age} is even."
     
 def main():
     """
