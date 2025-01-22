@@ -1,29 +1,19 @@
 import re
 
 def is_lower(i):
-    if re.search(r"[a-z]", i):
-        return True 
-    return False
+    return True if re.search(r"[a-z]", i) else False
 
 def is_upper(i):
-    if re.search(r"[A-Z]", i):
-        return True
-    return False
+    return True if re.search(r"[A-Z]", i) else False
 
 def is_number(i):
-    if re.search(r"\d", i):
-        return True
-    return False
+    return True if re.search(r"\d", i) else False
 
 def is_special(i):
-    if re.search(r"[@#$]", i):
-        return True
-    return False
+    return True if re.search(r"[@#$]", i) else False
 
 def right_length(i):
-    if 6 <= len(i) <= 16:
-        return True
-    return False
+    return True if 6 <= len(i) <= 16 else False
 
 def check_password():
     errors = []
