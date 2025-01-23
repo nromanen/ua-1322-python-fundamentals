@@ -19,14 +19,12 @@ class Employee:
         Employee.__counter += 1
         self.name = name
         self.salary = salary
-        self.number_of_employees()
-        self.inform_employee()
 
     def __del__(self):
         Employee.__counter -= 1
 
     def number_of_employees(self):
-        print(self.__counter)
+        return self.__counter
 
     def inform_employee(self):
         print(self)
