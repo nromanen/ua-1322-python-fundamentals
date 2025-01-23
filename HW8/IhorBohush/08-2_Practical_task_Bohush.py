@@ -20,8 +20,6 @@ def valid_password():
         if not re.search("[$#@]", password):
             invalid_password.append('Must contain at least one special character from [$#@].')
         if len(invalid_password) == 0:
-            break
+            return "Password is valid"
         invalid_password = '\n'.join(invalid_password)
         print(f"Invalid password:\n{invalid_password}")
-        continue
-    return "Password is valid"
