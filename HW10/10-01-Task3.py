@@ -10,9 +10,8 @@ class Employee():
     def employee_info(self):
         print(f"Name: {self.name}, Salary: {self.salary}")
     
-    # (* args, ** kwargs) So we can print employee count with both person1.employee_count() and Employee.employee_count()
-    # without getting errors, please let me know if there is a better way to do this.
-    def employee_count(* args, ** kwargs):
+    @classmethod
+    def employee_count(cls):
         print(f"Total number of employees: {Employee.employee_num}")
 
     # needed to reduce employee count if we delete someone.

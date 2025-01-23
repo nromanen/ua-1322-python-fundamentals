@@ -9,7 +9,7 @@ class Rectanle(Polygon):
         super().__init__(2)
     
     def square(self):
-        if any(self.sides):
+        if all(self.sides):
             return self.sides[0]*self.sides[1]
         else:
             return "Please use configSides() function to configure the sides!"
