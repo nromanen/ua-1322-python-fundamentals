@@ -1,8 +1,8 @@
 def check(paswd: str) -> tuple:
-    if not any(x.isalpha() for x in paswd):
-        return False, "Must contain atleast 1 character"
-    if not any(x.isupper() for x in paswd) or not any(x.islower() for x in paswd):
-        return False, "Must contain atleast 1 upper and 1 lower case"
+    if not any(x.isupper() for x in paswd):
+        return False, "Must contain atleast 1 upper character"
+    if not any(x.islower() for x in paswd):
+        return False, "Must contain atleast 1 upper character"
     if len(paswd) > 16 or len(paswd) < 6:
         return False, "Must be atleast 6 characters but not over 16"
     if not any(x.isnumeric() for x in paswd):
