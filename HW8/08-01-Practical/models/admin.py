@@ -6,5 +6,3 @@ def test_admin():
 
 def dummy_func():
     pass
-
-__all__ = ["create_admin"]
