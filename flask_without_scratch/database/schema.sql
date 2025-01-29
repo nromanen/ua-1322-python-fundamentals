@@ -1,0 +1,8 @@
+DROP TABLE IF EXISTS posts;
+
+CREATE TABLE posts (
+    id serial PRIMARY KEY,
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+    title TEXT NOT NULL,
+    content TEXT NOT NULL
+);
