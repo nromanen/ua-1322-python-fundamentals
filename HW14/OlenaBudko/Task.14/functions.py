@@ -16,9 +16,3 @@ def merge(dict1, dict2):
     new_dict.update(dict2)
     return new_dict
 
-
-# d = {"name":"Roman", "age":"25"}
-# b = {"position": "manager", "salary": "11200"}
-# c = merge(d, b)
-# print(c)
-# print(len(d.items()))
