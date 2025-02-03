@@ -150,7 +150,6 @@ def game() -> None:
 
         clock.tick(60)
         pygame.display.flip()
-        pygame.display.update()
 
 
 
