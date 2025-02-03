@@ -24,9 +24,9 @@ class TestValidPassword(unittest.TestCase):
                      ('ffggFFGG1122@@##11', f'{self.len_password}')
                      ]
         for i in test_data:
+            password = valid_password(i[0])
             with self.subTest(data=i):
-                self.assertEqual(valid_password(i[0]), i[1], f'For "{i[0]}" must be "{i[1]}" but now is '
-                                                             f'"{valid_password(i[0])}"')
+                self.assertEqual(password, i[1], f'For "{i[0]}" must be "{i[1]}" but now is "{password}"')
 
     def test_valid_password(self):
         """Testing of the valid password"""
@@ -37,9 +37,9 @@ class TestValidPassword(unittest.TestCase):
                      ('Ihor@29', f'{self.valid}')
                      ]
         for i in test_data:
+            password = valid_password(i[0])
             with self.subTest(data=i):
-                self.assertEqual(valid_password(i[0]), i[1], f' For "{i[0]}" must be "{i[1]}" but now is '
-                                                             f'"{valid_password(i[0])}"')
+                self.assertEqual(password, i[1], f' For "{i[0]}" must be "{i[1]}" but now is "{password}"')
 
 
 if __name__ == '__main__':

@@ -16,9 +16,9 @@ class TestFunctions(unittest.TestCase):
                      ('This is my test', 'a', 'Not found')
                      ]
         for i in test_data:
+            symbol_position = get_symbol_position(i[0], i[1])
             with self.subTest(data=i):
-                self.assertEqual(get_symbol_position(i[0], i[1]), i[2], f'For "{i[1]}" must be "{i[2]}" but now is '
-                                                                        f'"{get_symbol_position(i[0], i[1])}"')
+                self.assertEqual(symbol_position, i[2], f'For "{i[1]}" must be "{i[2]}" but now is "{symbol_position}"')
 
     def test_merge(self):
         """Testing the function 'merge' in both modules"""
