@@ -47,7 +47,7 @@ attempts_txt = TextDisplay("Attemps left:", 18, 0, 70)
 attempts = TextDisplay("10", 18, -attempts_txt.surface.get_width()/2 - 10, 70, (255, 0, 0))
 game_over1 = TextDisplay(f"Game over, you lost!", 30, 0, GAME_HEIGHT/2 - 30, (255, 0, 0))
 you_won = TextDisplay("Game over, you Won!!!", 30, 0, GAME_HEIGHT/2 - 30, (0, 255, 0))
-replay_button = button_guess = RectDisplay(100, 32, 0, 200)
+replay_button = RectDisplay(100, 32, 0, 200)
 replay_text = TextDisplay("Replay", 18, replay_button.x, replay_button.y + replay_button.size_y/6)
 
 
