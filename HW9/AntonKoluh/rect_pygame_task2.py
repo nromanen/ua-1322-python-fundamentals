@@ -24,9 +24,6 @@ pygame.display.set_caption("My first game")
 
 run = True
 clock = pygame.time.Clock()
-
-def check_border(plane):
-    pass
         
 
 while run:
