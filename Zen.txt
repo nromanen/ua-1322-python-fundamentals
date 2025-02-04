@@ -27,3 +27,4 @@ The Zen of Python, by Tim Peters
 25.Sparse is better than dense.
 26.Readability counts.
 27.Special cases aren't special enough to break the rules.
+34.Now is better than never.
