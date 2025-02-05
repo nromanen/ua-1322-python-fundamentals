@@ -9,7 +9,7 @@ def bigger_number (num1, num2):
 		result = num1
 	elif num2>num1:
 		result = num2
-	elif num1 == num2:
+	else:
 		result = "the numbers are equal"
 	return result
 
