@@ -35,22 +35,27 @@ Human.static()
 #Task 3
 class Employee(object):
     """Employee class"""
-    obj = None
-    employees = dict()
+    employees = list()
 
     def __new__(self, *args, **kwargs):
+        self.obj =  None
         if not self.obj:
             self.obj = object.__new__(self)
         return self.obj
 
     def __init__(self, name, salary):
-        self.employees[name] = salary
+        self.name = name
+        self.salary = salary
+        self.employees.append({'Name': self.name, 'Salary': self.salary})
+
+    @classmethod
+    def get_count(cls):
+        return len(cls.employees)
 
     def info(self):
-        print(f"Total employees {len(self.employees)}")
-        print(self.employees)
-        for k, v in self.employees.items():
-            print(f"Name: {k} | Salary: {v}")
+        print(f"Total employees: {Employee.get_count()}")
+        for employee in self.employees:
+            print(f"Name: {employee['Name']} | Salary: {employee['Salary']}")
 
 
 Employee1 = Employee("Dmytro","40000")

@@ -1,9 +1,7 @@
 # Task_1
 def max_number(a, b):
     """ Calculate the largest number """
-    if a > b:
-        return a
-    return b
+    return a if a > b else b
 
 
 print(max_number(4, 7))
