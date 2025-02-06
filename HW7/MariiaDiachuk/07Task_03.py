@@ -10,6 +10,4 @@ def count_characters(s):
     return char_count
 
 
-input_string = "hello"
-result = count_characters(input_string)
-print(result)
+
