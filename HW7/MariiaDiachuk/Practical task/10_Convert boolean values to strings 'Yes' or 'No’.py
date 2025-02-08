@@ -1,2 +1,2 @@
-def bool_to_word(boolean):
+def number_to_string(boolean):
     return "Yes" if boolean else "No"
