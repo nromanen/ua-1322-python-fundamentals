@@ -23,7 +23,7 @@ output = tk.StringVar()
 
 def get_weather(city):
     if not city:
-        msg.showwarning(title="Warning", message=f"City wasn't provided, please check input")
+        msg.showwarning(title="Warning", message="City wasn't provided, please check input")
         return
     output.set("")  # clean output
     try:
