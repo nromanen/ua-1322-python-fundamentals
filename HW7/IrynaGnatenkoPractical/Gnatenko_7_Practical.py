@@ -98,10 +98,7 @@ Considering these factors, write a function that tells you if it is possible to 
 Function should return true if it is possible and false if not. """
 
 def zero_fuel(distance_to_pump, mpg, fuel_left):
-    if mpg * fuel_left >= distance_to_pump:
-        return True
-    else:
-        return False
+    return mpg * fuel_left >= distance_to_pump
 
 
 """ -------------------- 9 --------------------
