@@ -147,6 +147,8 @@ The correct answer would be 17.
 Hint: Don't forget to check for bad values like null/undefined """
 
 def count_sheeps(sheep):
+    if sheep is None:
+        return 0
     return sheep.count(True)
 
 
