@@ -24,7 +24,7 @@ done = False
 
 def render_text(text, pos, font, color=BLACK):
     """renders text on the game screen"""
-    text_surface = font.render(text, True, BLACK)
+    text_surface = font.render(text, True, color)
     gameDisplay.blit(text_surface, pos)
 
 def guess_number ():
