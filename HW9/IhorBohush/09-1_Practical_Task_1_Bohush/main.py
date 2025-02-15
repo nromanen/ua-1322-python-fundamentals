@@ -30,6 +30,7 @@ output_rectangle1 = pygame.Rect(105, 355, 590, 190)
 
 
 def multiline_text(mt_text):
+    """Creating multiline text to display the result in some rows in the output_rectangle"""
     x = 220
     y = 400
     for i in mt_text.splitlines():
@@ -38,52 +39,72 @@ def multiline_text(mt_text):
         y += 50
 
 
+def enter_button(guess_text, random_num, number, scr_text):
+    """Comparison the number entered by user with the random number and displaying the result
+    into the output rectangle"""
+    screen_text = ''
+    try:
+        # If the user guessed the number, the game corresponds the congratulatory message and stops
+        if int(guess_text) == random_num:
+            screen_text = (f'Your number: {guess_text} is true \n'
+                           f'Congratulations!!!')
+            random_num = None
+            scr_text = 'Click "Play game"'  # The second text above the input row
+            guess_text = ''
+            return screen_text, scr_text, number, random_num, guess_text
+        # The user gets message if entered number is bigger or lesser the random number
+        elif int(guess_text) < random_num:
+            screen_text = (f'Your number: {guess_text} \n'
+                           f'Lesser')
+        elif int(guess_text) > random_num:
+            screen_text = (f'Your number: {guess_text} \n'
+                           f'Bigger')
+        guess_text = ''
+        number += 1
+
+        if number == 10:  # The user has 10 tries
+            scr_text = 'Click "Play game"'
+            screen_text = "Try again"
+            random_num = None
+    # If the user enters the number after 10 tries or after guessed it, the random number becomes None,
+    # and it cannot to comparison these numbers, that's why an error occurs as TypeError and the game
+    # asks to click 'Play game'
+    except TypeError:
+        screen_text = 'Click "Play game"'
+        number = 0
+    # The ValueError occurs if the user enters not number or empty value
+    except ValueError:
+        screen_text = 'Enter correct number'
+    return screen_text, scr_text, number, random_num, guess_text
+
+
 running = True
 while running:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             running = False
-        if event.type == pygame.KEYDOWN:
-            if input_active:
-                if event.key == pygame.K_BACKSPACE:
-                    text = text[:-1]
-                else:
-                    text += event.unicode
+        if event.type == pygame.KEYDOWN and input_active:  # Entering the number into the input row
+            if event.key == pygame.K_BACKSPACE:
+                text = text[:-1]
+            else:
+                text += event.unicode
         if event.type == pygame.MOUSEBUTTONDOWN:
-            if play_rectangle.collidepoint(event.pos):
+            if play_rectangle.collidepoint(event.pos):  # Click the button 'Play game'
                 random_number = randint(1, 100)
                 number_attempt = 0
                 text = ''
                 display_text = ''
-                display_text1 = 'Enter number from 1 to 100:'
-            try:
-                if button_rect.collidepoint(event.pos):
-                    if int(text) == random_number:
-                        display_text = (f'Your number: {text} is true \n'
-                                        f'Congratulations!!!')
-                        random_number = None
-                        display_text1 = 'Click "Play game"'
-                        text = ''
-                        break
-                    elif int(text) < random_number:
-                        display_text = (f'Your number: {text} \n'
-                                        f'Lesser')
-                    elif int(text) > random_number:
-                        display_text = (f'Your number: {text} \n'
-                                        f'Bigger')
-                    text = ''
-                    number_attempt += 1
-                    if number_attempt >= 10:
-                        display_text1 = 'Click "Play game"'
-                        display_text = "Try again"
-                        random_number = None
-            except TypeError:
-                display_text = 'Click "Play game"'
-                number_attempt = 0
-            except ValueError:
-                display_text = 'Enter correct number'
-                break
-            if exit_rect.collidepoint(event.pos):
+                display_text1 = 'Enter number from 1 to 100:'  # The first text above the input row
+
+            if button_rect.collidepoint(event.pos):  # Click the button 'Enter'
+                result_enter = enter_button(text, random_number, number_attempt, display_text1)
+                display_text = result_enter[0]
+                display_text1 = result_enter[1]
+                number_attempt = result_enter[2]
+                random_number = result_enter[3]
+                text = result_enter[4]
+
+            if exit_rect.collidepoint(event.pos):  # Click the button 'Exit' to exit the game
                 pygame.quit()
                 quit()
 

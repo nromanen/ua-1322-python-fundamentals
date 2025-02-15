@@ -24,6 +24,7 @@ output_rectangle1 = pygame.Rect(105, 205, 590, 290)
 
 
 def multiline_text(mt_text):
+    """Creating multiline text to display the result in some rows in the output_rectangle"""
     x = 250
     y = 230
     for i in mt_text.splitlines():
@@ -33,16 +34,20 @@ def multiline_text(mt_text):
 
 
 def check_text(text_input):
-    if re.match(r"^[a-zA-Z0-9\W]+ +[a-zA-Z]{2}$", text_input) is not None:
+    """Checks entered by user settlement and corrects it.The entered text must be, for example, as
+    'Kyiv' or 'Kyiv, UA. This function pastes coma if there is not it in text. Removes extra characters
+    and spaces. Makes the first word and the next two letters title if they aren't."""
+    if re.match(r"^[a-zA-Z0-9\W]+ +[a-zA-Z]{2}$", text_input) is not None:  # Checks if the text consists of two words
         text1 = (text_input.title()).split()
         pattern = re.compile(r",")
-        text2 = pattern.findall(text1[-2])
+        text2 = pattern.findall(text1[-2])  # Checks if the first word has a coma, and if not - pastes it
         if not text2:
             text1[-2] = text1[-2] + ','
-        text1[-1] = text1[-1].upper()
+        text1[-1] = text1[-1].upper()  # Makes the second word upper
         text_input = ' '.join(text1)
-        if re.search(r"\W*,\W*", text_input):
+        if re.search(r"\W*,\W*", text_input):  # Finds any characters and spaces between two words and removes them
             text_input = re.sub(r"\W*,\W*", ", ", text_input)
+    # If the entered text consists of only one word, makes it title and removes any characters and spaces after it
     else:
         text_input = text_input.title()
         if re.search(r"\W+$", text_input):
@@ -50,34 +55,36 @@ def check_text(text_input):
     return text_input
 
 
+def check_city(city_input):
+    """Checks if the entered settlement is correct and excepts an error with a corresponding message"""
+    try:
+        output_text = weather.weather(city_input)
+    except KeyError:
+        output_text = 'Enter correct city'
+    except IndexError:
+        output_text = 'Enter correct city'
+    return output_text
+
+
 running = True
 while running:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             running = False
-        if event.type == pygame.KEYDOWN:
-            if input_active:
-                if event.key == pygame.K_RETURN:
-                    text = check_text(text)
-                    try:
-                        display_text = weather.weather(text)
-                    except KeyError:
-                        display_text = 'Enter correct city'
-                    except IndexError:
-                        display_text = 'Enter correct city'
-                elif event.key == pygame.K_BACKSPACE:
-                    text = text[:-1]
-                else:
-                    text += event.unicode
+        # After the text is entered, it is possible to press the button 'Enter' on the keyboard or
+        # to click the button 'Get weather' to get information about the weather in the entered settlement
+        if event.type == pygame.KEYDOWN and input_active:
+            if event.key == pygame.K_RETURN:
+                text = check_text(text)
+                display_text = check_city(text)
+            elif event.key == pygame.K_BACKSPACE:
+                text = text[:-1]
+            else:
+                text += event.unicode
         if event.type == pygame.MOUSEBUTTONDOWN:
             if button_rect.collidepoint(event.pos):
                 text = check_text(text)
-                try:
-                    display_text = weather.weather(text)
-                except KeyError:
-                    display_text = 'Enter correct city'
-                except IndexError:
-                    display_text = 'Enter correct city'
+                display_text = check_city(text)
 
     screen.fill(GREY)
     pygame.draw.rect(screen, WHITE, input_rectangle, width=5)
