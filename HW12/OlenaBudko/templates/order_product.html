@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Замовлення товару: {{ product.name }}</h1>
+<form method="post">
+  <div class="mb-3">
+    <label for="email" class="form-label">Ваш Email</label>
+    <input type="email" class="form-control" name="email" id="email" required>
+  </div>
+  <button type="submit" class="btn btn-success">Оформити замовлення</button>
+</form>
+{% endblock %}

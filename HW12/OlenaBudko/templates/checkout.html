@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Оформлення замовлення</h1>
+<h3>Деталі замовлення</h3>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Товар</th>
+            <th>Ціна</th>
+            <th>Кількість</th>
+            <th>Сума</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for item in items %}
+        <tr>
+            <td>{{ item.product.name }}</td>
+            <td>{{ item.product.price }} грн</td>
+            <td>{{ item.quantity }}</td>
+            <td>{{ item.item_total }} грн</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+<h3>Загальна сума: {{ total }} грн</h3>
+<form method="post">
+    <div class="mb-3">
+        <label for="email" class="form-label">Ваш Email</label>
+        <input type="email" class="form-control" name="email" id="email" required>
+    </div>
+    <button type="submit" class="btn btn-success">Оформити замовлення</button>
+</form>
+{% endblock %}

@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% block content %}
+    <div class="row">
+        <div class="col-md-3">
+            <h2>Категорії</h2>
+            <ul class="list-group">
+                {% for cat in categories %}
+                    <li class="list-group-item">
+                        <a href="{{ url_for('category_products', category_id=cat.id) }}">{{ cat.name }}</a>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+
+        <div class="col-md-9">
+            <h1>Товари</h1>
+            <div class="row">
+                {% for product in products %}
+                    <div class="col-md-4">
+                        <div class="card mb-4">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ product.name }}</h5>
+                                <p class="card-text">{{ product.description }}</p>
+                                <p>Ціна: {{ product.price }} грн</p>
+                                <p>Категорія: {{ product.category.name }}</p>
+                                <a href="{{ url_for('add_to_cart', product_id=product.id) }}" class="btn btn-info">Додати
+                                    в корзину</a>
+                                {% if session.get('admin') %}
+                                <a href="{{ url_for('edit_product', product_id=product.id) }}"
+                                   class="btn btn-secondary">Редагувати</a>
+                                <form method="post" action="{{ url_for('delete_product', product_id=product.id) }}"
+                                      style="display:inline-block;">
+                                    <button type="submit" class="btn btn-danger"
+                                            onclick="return confirm('Ви впевнені, що хочете видалити цей товар?');">
+                                        Видалити
+                                    </button>
+                                </form>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock %}
