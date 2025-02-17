@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Замовлення користувачів</h1>
+{% if orders %}
+    {% for order in orders %}
+    <div class="card mb-3">
+        <div class="card-header">
+            Замовлення №{{ order.id }} від {{ order.timestamp.strftime("%d-%m-%Y %H:%M") }} ({{ order.customer_email }})
+        </div>
+        <div class="card-body">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Товар</th>
+                        <th>Ціна</th>
+                        <th>Кількість</th>
+                        <th>Сума</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for item in order.items %}
+                    <tr>
+                        <td>{{ item.product.name }}</td>
+                        <td>{{ item.price }} грн</td>
+                        <td>{{ item.quantity }}</td>
+                        <td>{{ item.price * item.quantity }} грн</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    {% endfor %}
+{% else %}
+<p>Немає оформлених замовлень.</p>
+{% endif %}
+{% endblock %}

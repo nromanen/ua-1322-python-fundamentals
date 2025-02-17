@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Додати категорію</h1>
+<form method="post">
+  <div class="mb-3">
+    <label for="name" class="form-label">Назва категорії</label>
+    <input type="text" class="form-control" name="name" id="name" required>
+  </div>
+  <button type="submit" class="btn btn-primary">Додати категорію</button>
+</form>
+{% endblock %}
