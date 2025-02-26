@@ -78,7 +78,7 @@ Note: If the number is a multiple of both 3 and 5, only count it once. """
 
 def solution(number):
     if number < 0:
-    return 0
+        return 0
     
     i = 1
     number_set = set()
@@ -127,10 +127,9 @@ https://www.codewars.com/kata/convert-boolean-values-to-strings-yes-or-no
 Complete the method that takes a boolean value and return a "Yes" string for true, or a "No" string for false. """
 
 def bool_to_word(boolean):
-    if boolean:
-        return "Yes"
-    else:
-        return "No"
+    return "Yes" if boolean else "False"
+
+print(bool_to_word(False))
 
 
 """ -------------------- 11 --------------------
